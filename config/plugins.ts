@@ -1,4 +1,8 @@
 export default ({ env }) => ({
+    'wysiwyg': {
+        enabled: true,
+        resolve: './src/plugins/wysiwyg'
+    },
     upload: {
         config: {
             provider: 'aws-s3',

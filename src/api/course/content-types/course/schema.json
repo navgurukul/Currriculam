@@ -4,7 +4,8 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,10 @@
     "short_description": {
       "type": "string",
       "maxLength": 255
+    },
+    "main_content": {
+      "type": "richtext",
+      "required": true
     }
   }
 }
