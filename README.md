@@ -33,3 +33,7 @@ yarn build
 ```
 
 ### `Build Curriculum for Meraki`
+
+ ```
+ Content Manager
+ ```
