@@ -8,13 +8,12 @@ Your contribution is more than welcomed :)
 - Change the directory `cd Currriculam`and then Install dependencies `npm install`  
 
 
-# 🚀 Getting started with Strapi
-
-strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+## 🚀 Getting started 
 
 ### `develop`
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+Start our Curriculum application with autoReload enabled.<br>
+through run command in Developement.[Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
 
 ```
 npm run develop
@@ -24,7 +23,8 @@ yarn develop
 
 ### `start`
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
+Start your Strapi application with autoReload disabled. <br>
+through run command in Production.[Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
 
 ```
 npm run start
@@ -42,8 +42,16 @@ npm run build
 yarn build
 ```
 
-### `Build Curriculum for Meraki`
+## Plugins
+### `Content Manager`
+Quick way to see, edit and delete the data in your database.
 
- ```
- Content Manager
- ```
+### `Content Type Builder`
+Modelize the data structure of your API. Create new fields and relations in just a minute. The files are automatically created and updated in your project.
+
+###  `wysiwyg`
+Quill is a powerful, free and open source WYSIWYG editor made for the modern web. Equipped with modern architecture and an expressive API, it’s highly compatible, extensible and customizable to fit any need.
+
+### `Internationalization`
+This plugin enables to create, to read and to update content in different languages, both from the Admin Panel and from the API.
+
