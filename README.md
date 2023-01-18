@@ -1,6 +1,8 @@
 # Curriculum App
 
-
+## Project setup
+- Clone the repo `git clone https://github.com/navgurukul/Currriculam.git`
+- Install dependencies `npm install` and then change directory `cd Currriculam`
 
 
 # 🚀 Getting started with Strapi
