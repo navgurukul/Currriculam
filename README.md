@@ -1,5 +1,8 @@
 # Curriculum App
+Here is Everything about Curriculum App :)
+This repository holds whole Content management system.
 
+Your contribution is more than welcomed 🤩
 ## Project setup
 - Clone the repo `git clone https://github.com/navgurukul/Currriculam.git`
 - Change the directory `cd Currriculam`and then Install dependencies `npm install`  
