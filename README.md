@@ -1,4 +1,10 @@
+# Curriculum App
+
+
+
+
 # 🚀 Getting started with Strapi
+[Strapi](https://th.bing.com/th/id/OIP.P29GVE4RClFJk1P9ydEr_gHaB9?w=338&h=92&c=7&r=0&o=5&pid=1.7)
 
 strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
 
