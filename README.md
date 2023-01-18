@@ -13,7 +13,7 @@ Your contribution is more than welcomed :)
 ### develop.
 
 Start our Curriculum application with autoReload enabled.<br>
-through run command in Developement.[Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+through run command in Developement. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
 
 ```
 npm run develop
@@ -24,7 +24,7 @@ yarn develop
 ### start.
 
 Start your Strapi application with autoReload disabled. <br>
-through run command in Production.[Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
+through run command in Production. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
 
 ```
 npm run start
