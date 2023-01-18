@@ -10,7 +10,7 @@ Your contribution is more than welcomed :)
 
 ## 🚀 Getting started 
 
-### `develop`
+### develop.
 
 Start our Curriculum application with autoReload enabled.<br>
 through run command in Developement.[Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
@@ -21,7 +21,7 @@ npm run develop
 yarn develop
 ```
 
-### `start`
+### start.
 
 Start your Strapi application with autoReload disabled. <br>
 through run command in Production.[Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
@@ -32,7 +32,7 @@ npm run start
 yarn start
 ```
 
-### `build`
+### build.
 
 Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
 
@@ -43,15 +43,15 @@ yarn build
 ```
 
 ## Plugins
-### `Content Manager`
+### Content Manager
 Quick way to see, edit and delete the data in your database.
 
-### `Content Type Builder`
+### Content Type Builder
 Modelize the data structure of your API. Create new fields and relations in just a minute. The files are automatically created and updated in your project.
 
-###  `wysiwyg`
+###  wysiwyg(Quill editor)
 Quill is a powerful, free and open source WYSIWYG editor made for the modern web. Equipped with modern architecture and an expressive API, it’s highly compatible, extensible and customizable to fit any need.
 
-### `Internationalization`
+### Internationalization
 This plugin enables to create, to read and to update content in different languages, both from the Admin Panel and from the API.
 
