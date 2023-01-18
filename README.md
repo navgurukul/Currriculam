@@ -44,14 +44,19 @@ yarn build
 
 ## Plugins
 ### Content Manager
-Quick way to see, edit and delete the data in your database.
+- Quick way to see, edit and delete the data in your database.
+    
+
 
 ### Content Type Builder
-Modelize the data structure of your API. Create new fields and relations in just a minute. The files are automatically created and updated in your project.
+- Modelize the data structure of your API. Create new fields and relations in just a minute. The files are automatically created and updated in your project.
 
 ###  wysiwyg(Quill editor)
-Quill is a powerful, free and open source WYSIWYG editor made for the modern web. Equipped with modern architecture and an expressive API, it’s highly compatible, extensible and customizable to fit any need.
+- Quill is a powerful, free and open source WYSIWYG editor made for the modern web. Equipped with modern architecture and an expressive API, it’s highly compatible, extensible and customizable to fit any need.
 
 ### Internationalization
-This plugin enables to create, to read and to update content in different languages, both from the Admin Panel and from the API.
+- This plugin enables to create, to read and to update content in different languages, both from the     Admin Panel and from the API.
+
+    #### Strapi Plugin
+    - [@strapi/plugin-i18n](https://www.bing.com/ck/a?!&&p=cb1e68dc756483dbJmltdHM9MTY3NDAwMDAwMCZpZ3VpZD0wOGQxYzBiMS0wZTkxLTZlYWItMzNiNi1kMmY4MGY2OTZmNTImaW5zaWQ9NTE3OQ&ptn=3&hsh=3&fclid=08d1c0b1-0e91-6eab-33b6-d2f80f696f52&psq=%40strapi%2fplugin-i18n&u=a1aHR0cHM6Ly9kb2NzLnN0cmFwaS5pby9kZXZlbG9wZXItZG9jcy9sYXRlc3QvcGx1Z2lucy9pMThuLmh0bWw&ntb=1) : Content in different languages.
 
