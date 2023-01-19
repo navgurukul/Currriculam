@@ -41,7 +41,7 @@ npm run build
 # or
 yarn build
 ```
-### Tech Stack.
+### Tech Stack
 - **NodeJS** : We share a love-hate relationship with JavaScript, but our love for it outweighs the hate . 
 - **PostgreSQL** : One of the good things about Postgres is that it is ORDBMS (O for object) rather than just RDMS.
     #### Strapi Plugin
@@ -63,3 +63,111 @@ yarn build
 - This plugin enables to create, to read and to update content in different languages, both from the     Admin Panel and from the API.
 
 
+## Code Structure
+
+
+├──── .cache # files used to build the admin panel
+├──── config # API configurations
+│     ├ api.ts
+│     ├ admin.ts
+│     ├ cron-tasks.ts
+│     ├ database.ts
+│     ├ middlewares.ts
+│     ├ plugins.ts
+│     └ server.ts
+├──── database
+│     └──── migrations
+├──── dist # build of the backend
+│     └──── build # build of the admin panel
+├──── node_modules # npm packages used by the project
+├──── public # files accessible to the outside world
+│     └──── uploads
+├──── src
+│     ├──── admin # admin customization files
+│     │     ├──── extensions # files to extend the admin panel
+│     │     ├ app.example.tsx
+│     │     ├ webpack.config.ts
+|     |     └ tsconfig.json
+│     ├──── api # business logic of the project split into subfolders per API
+│     │     ├──── course
+│     │     │     ├─ (content-type)
+│     │     │     │      └─ course
+│     │     │     │            └ schema.json
+│     │     │     ├─ controllers
+│     │     │     │      └─ course.ts
+│     │     │     ├─ routes
+│     │     │     │      └─ course.ts
+│     │     │     └─ services
+│     │     │            └─ course.ts
+│     │     └──── exercise
+│     │           ├─ (content-type)
+│     │           │      └─ exercise
+│     │           │            └ schema.json
+│     │           ├─ controllers
+│     │           │      └─ exercise.ts
+│     │           ├─ routes
+│     │           │      └─ exercise.ts
+│     │           └─ services
+│     │                  └─ exercise.ts
+│     ├──── extensions
+│     │
+│     ├──── plugins # local plugins files
+│     │     └─ wysiwyg
+│     │        ├─ admin
+│     │        │  └─ src
+│     │        │      ├─ components
+│     │        │      │    ├─ Intitilizer
+│     │        │      │    │   └─ index.js
+│     │        │      │    ├─ PluginIcon
+│     │        │      │    │   └─ index.js 
+│     │        │      │    ├─ QuillEditor
+│     │        │      │    │   └─ index.js
+│     │        │      │    └─ Wysiwyg
+│     │        │      │        └─ index.js
+│     │        │      │
+│     │        │      ├─ pages
+│     │        │      │    ├─ App
+│     │        │      │    │   └─ index.js 
+│     │        │      │    └─ HomePage
+│     │        │      │        └─ index.js
+│     │        │      │
+│     │        │      ├─ translaions
+│     │        │      ├─ utils
+│     │        │      │    ├─ axiosInstance.js
+│     │        │      │    └─ getTrad.js
+│     │        │      ├─ index.tsx
+│     │        │      └─ pluginId.ts
+│     │        │ 
+│     │        ├─ node_modules # npm packages used by the quill editor
+│     │        │ 
+│     │        ├─ server 
+│     │        │  ├─ config 
+│     │        │  │    └─ index.js
+│     │        │  ├─ content-type
+│     │        │  │    └─ index.js
+│     │        │  ├─ controllers
+│     │        │  │    ├─ index.js
+│     │        │  │    └─ my-controller.js
+│     │        │  ├─ middlewares
+│     │        │  │    └─ index.js
+│     │        │  ├─ policies
+│     │        │  │    └─ index.js
+│     │        │  ├─ routes
+│     │        │  │    └─ index.js
+│     │        │  ├─ services
+│     │        │  │    ├─ index.js
+│     │        │  │    └─ my-controller.js
+│     │        │  ├─ bootstrap.js
+│     │        │  ├─ destroy.js
+│     │        │  ├─ index,js
+│     │        │  └─ register.js
+│     │        │
+│     │        ├─ package.json
+│     │        ├─ strapi-admin.js
+│     │        └─ strapi-server.js
+│     │    
+│     └ index.ts # include register(), bootstrap() and destroy() functions
+│     
+├ .env
+├ tsconfig.json
+└ package.json
