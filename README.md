@@ -45,6 +45,8 @@ yarn build
 - **NodeJS** : We share a love-hate relationship with JavaScript, but our love for it outweighs the hate . 
 - **PostgreSQL** : One of the good things about Postgres is that it is ORDBMS (O for object) rather than just RDMS.
     #### Strapi Plugin
+    - [@strapi/strapi](https://strapi.io/) : Strapi is the leading open-source headless Content Management System (CMS).
+    - [@strapi/provider-upload-aws-s3](https://strapi.io/blog/how-to-set-up-amazon-s3-upload-provider-plugin-for-our-strapi-app) : Amazon AWS is the biggest cloud provider.
     - [@strapi/plugin-i18n](https://strapi.io/blog/i18n-implementation-and-best-practices-in-strapi) : Content in different languages.
 
     - [react-quill](https://strapi.io/blog/how-to-change-the-default-wysiwy-to-quill-editor) : Content editor.
