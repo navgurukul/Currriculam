@@ -65,7 +65,7 @@ yarn build
 
 ## Code Structure
 
-
+```
 ├──── .cache # files used to build the admin panel
 ├──── config # API configurations
 │     ├ api.ts
@@ -171,3 +171,4 @@ yarn build
 ├ .env
 ├ tsconfig.json
 └ package.json
+```
