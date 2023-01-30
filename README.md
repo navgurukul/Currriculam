@@ -173,4 +173,4 @@ yarn build
 └ package.json
 ```
 
-:)
+Happy coding Developers :)
