@@ -9,6 +9,7 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
+          "frame-src": ["https://www.youtube.com"],
           "connect-src": ["'self'", "https:"],
           "img-src": [
             "'self'",
