@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "required": true,
       "maxLength": 255
@@ -21,9 +21,23 @@
       "type": "string",
       "maxLength": 255
     },
-    "main_content": {
-      "type": "richtext",
-      "required": true
+    "logo": {
+      "type": "string"
+    },
+    "lang_available": {
+      "type": "json"
+    },
+    "exercise_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exercise.exercise",
+      "mappedBy": "course_id"
+    },
+    "assesment_id": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assesment.assesment",
+      "mappedBy": "course_id"
     }
   }
 }
