@@ -26,18 +26,6 @@
       "required": true,
       "maxLength": 255
     },
-    "course_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::course.course",
-      "inversedBy": "assesment_id"
-    },
-    "exercise_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::exercise.exercise",
-      "inversedBy": "assesment_id"
-    },
     "content": {
       "pluginOptions": {
         "i18n": {
@@ -45,6 +33,22 @@
         }
       },
       "type": "json"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
+        "files"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
