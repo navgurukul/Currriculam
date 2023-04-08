@@ -4,18 +4,33 @@
   "info": {
     "singularName": "assessment",
     "pluralName": "assessments",
-    "displayName": "Assessment"
+    "displayName": "Assessment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "type": "string",
       "required": true
     },
     "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "json"
     },
     "exercise": {
@@ -23,6 +38,12 @@
       "relation": "manyToOne",
       "target": "api::exercise.exercise",
       "inversedBy": "assessment"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course.course",
+      "inversedBy": "assessments"
     }
   }
 }
