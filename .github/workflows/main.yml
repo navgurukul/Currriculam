@@ -21,7 +21,7 @@ jobs:
       - name: Build Production Code
         run: npm run build
       - name: Deploy to Production
-        uses: easingthemes/ssh-deploy@v2.1.13
+        uses: easingthemes/ssh-deploy@v2.1.16
         with:
           server: ${{ secrets.PRODUCTION_SERVER }}
           username: ${{ secrets.PRODUCTION_USERNAME }}
