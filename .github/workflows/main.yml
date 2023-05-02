@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Check for Conflicts
-        run: git diff --quiet origin/main || { echo "There are conflicts in the code."; exit 1; }
+        run: git diff --quiet origin/main_copy || { echo "There are conflicts in the code."; exit 1; }
       - name: Install Dependencies
         run: npm install
       - name: Build Production Code
