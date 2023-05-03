@@ -30,9 +30,9 @@ jobs:
         # remote_path: /var/www/html
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "site/"
+          ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules"
+          SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
-          EXCLUDE: "/Currriculam/, /node_modules/"
+          # EXCLUDE: "/Currriculam/, /node_modules/"
