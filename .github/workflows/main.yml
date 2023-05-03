@@ -3,10 +3,10 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - Dev
-  pull_request:
-    branches:
-      - Dev
+      - [ Dev ]
+  # pull_request:
+  #   branches:
+  #     - Dev
 
 jobs:
   deploy:
@@ -30,7 +30,9 @@ jobs:
         # remote_path: /var/www/html
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules"
+          # ARGS: "-rlgoDzvc -i --delete"
+          ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules --exclude=/Currriculam/ --exclude=/node_modules/"
+
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
