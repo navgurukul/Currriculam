@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - [ Dev ]
+      - Dev 
   pull_request:
     branches:
       - Dev
