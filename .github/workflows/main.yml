@@ -1,44 +1,10 @@
-# name: Deploy to Production
-
-# on:
-#   push:
-#     branches:
-#       - Dev 
-#   pull_request:
-#     branches:
-#       - Dev
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout Code
-#         uses: actions/checkout@v2
-#       - name: Check for Conflicts
-#         run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
-#       - name: Install Dependencies
-#         run: npm install
-#       - name: Build Production Code
-#         run: npm run build
-#       - name: Deploy to Production
-#         uses: easingthemes/ssh-deploy@v4.1.8
-#         env:
-#           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-#           ARGS: "-rlgoDzvc -i --delete"
-#           # ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules --exclude=/Currriculam/ --exclude=/node_modules/"
-#           SOURCE: "public/"
-#           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-#           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-#           TARGET: ${{ secrets.REMOTE_TARGET }}
-#           REMOTE_PATH: /var/www/html
-
-#           # EXCLUDE: "/Currriculam/, /node_modules/"
-      
-
-name: Merge to Main and Deploy
+name: Deploy to Production
 
 on:
   push:
+    branches:
+      - Dev 
+  pull_request:
     branches:
       - Dev
 
@@ -48,27 +14,24 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
-      - name: Merge to Main
-        run: |
-          git config user.name "SanjnaPanwar"
-          git config user.email "sanjnapanwar7697@gmail.com"
-          git checkout main
-          git merge --no-ff --no-edit dev
-
-      - name: Push to Main
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: main
-
+      - name: Check for Conflicts
+        run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
+      - name: Install Dependencies
+        run: npm install
+      - name: Build Production Code
+        run: npm run build
       - name: Deploy to Production
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
+          # ARGS: "-rlgoDzvc -i --delete --exclude-from=.rsync.rules --exclude=/Currriculam/ --exclude=/node_modules/"
           SOURCE: "public/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
           REMOTE_PATH: /var/www/html
+
+          # EXCLUDE: "/Currriculam/, /node_modules/"
+      
+
