@@ -54,7 +54,7 @@ jobs:
           git config user.name "SanjnaPanwar"
           git config user.email "sanjnapanwar7697@gmail.com"
           git checkout main
-          git merge --no-ff --no-edit staging
+          git merge --no-ff --no-edit dev
 
       - name: Push to Main
         uses: ad-m/github-push-action@v0.6.0
