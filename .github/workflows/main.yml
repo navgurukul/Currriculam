@@ -38,5 +38,6 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
-        with:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Use GitHub Token
+        run: echo "My GitHub token: ${{ secrets.GH_TOKEN }}"
+        
