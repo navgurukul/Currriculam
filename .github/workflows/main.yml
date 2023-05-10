@@ -38,3 +38,5 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
+        with:
+          token: ${{ secrets.GH_TOKEN }}
