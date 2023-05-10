@@ -39,4 +39,4 @@ jobs:
             ls -al
             echo $RSYNC_STDOUT
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
