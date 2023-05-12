@@ -8,16 +8,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_TOKEN }}
-        runs-on: ubuntu-latest
-        strategy:
-          matrix:
-            node-version: [16.x]
 
       - name: Build and deploy
         run: |
@@ -55,4 +54,4 @@ jobs:
           SCRIPT_AFTER: |
             whoami
             ls -al
-            echo $RSYNC_STDOUT
+          echo $RSYNC_STDOUT
