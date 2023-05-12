@@ -14,12 +14,12 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
       - name: Build and deploy
         run: |
           git checkout main
           git merge --ff-only Dev
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - name: Check for Conflicts
         run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
       - name: Install Dependencies
