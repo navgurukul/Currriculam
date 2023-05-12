@@ -11,21 +11,27 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_TOKEN }}
+
       - name: Build and deploy
         run: |
           git checkout main
           git merge --ff-only Dev
+
       - name: Check for Conflicts
         run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
+
       - name: Install Dependencies
         run: npm install
+
       - name: Build Production Code
         run: npm run build
+
       - name: Deploy to Production
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
