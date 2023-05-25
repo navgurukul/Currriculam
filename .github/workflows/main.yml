@@ -12,6 +12,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Test ssh
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{secrets.REMOTE_HOST}}
+          REMOTE_USER: ${secrets.REMOTE_USER}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -vvv -i private_key ${REMOTE_USER}@${REMOTE_HOST}
+
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
@@ -40,3 +49,5 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
+
+           
