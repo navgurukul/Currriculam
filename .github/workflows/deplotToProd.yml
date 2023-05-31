@@ -17,4 +17,4 @@ jobs:
         run: |
           # Add your deployment commands here
           # For example, if you're deploying to a remote server via SSH:
-          ssh ${{ secrets.PROD_SSH_USERNAME }}@${{ secrets.PROD_SERVER_ADDRESS }} "cd /home/Currriculam && git checkout main && git pull origin main_copy && npm install && npm run build && pm2 restart 0"
+          ssh ${{ secrets.PROD_SSH_USERNAME }}@${{ secrets.PROD_SERVER_ADDRESS }} "cd /home/ubuntu/Currriculam && git checkout main && git pull origin main_copy && npm install && npm run build && pm2 restart 0"
