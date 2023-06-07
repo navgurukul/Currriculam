@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testings",
+  "info": {
+    "singularName": "testing",
+    "pluralName": "testings",
+    "displayName": "testing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "emailTemplate": {
+      "type": "richtext",
+      "required": false
+    },
+    "attachment": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

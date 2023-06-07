@@ -4,26 +4,70 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course",
-    "description": ""
+    "displayName": "Course"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
-    "title": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "type": "string",
       "required": true,
       "maxLength": 255
     },
     "short_description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "type": "string",
       "maxLength": 255
     },
-    "main_content": {
-      "type": "richtext",
-      "required": true
+    "logo": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "maxLength": 255
+    },
+    "lang_available": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "json"
+    },
+    "pathway": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pathway.pathway",
+      "inversedBy": "courses"
+    },
+    "exercises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exercise.exercise",
+      "mappedBy": "course"
+    },
+    "assessments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assessment.assessment",
+      "mappedBy": "course"
     }
   }
 }
