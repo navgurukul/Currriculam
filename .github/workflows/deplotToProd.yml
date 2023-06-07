@@ -3,18 +3,46 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - main
+      - Dev
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v2
-
-      - name: Deploy to Production
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+      - name: Check Branch
+        id: branch_check
         run: |
-          # Add your deployment commands here
-          # For example, if you're deploying to a remote server via SSH:
-          ssh ${{ secrets.PROD_SSH_USERNAME }}@${{ secrets.PROD_SERVER_ADDRESS }} "cd /home/ubuntu/Currriculam && git checkout main && git pull origin main && npm install && npm run build && pm2 restart 0"
+          if [[ "${{ github.base_ref }}" != "refs/heads/Dev" ]]; then
+            echo "This push is not on the Dev branch."
+            exit 0
+          fi
+      - name: Sync Dev to main
+        if: steps.branch_check.outcome == 'success'
+        run: |
+          git checkout main
+          git pull origin Dev
+          git merge --no-ff origin/Dev
+      - name: Install Dependencies
+        run: npm install
+      - name: Build Production Code
+        run: npm run build
+      - name: Deploy to Production
+        uses: easingthemes/ssh-deploy@v4.1.8
+        env:
+          PROD_SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "public/"
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_USER: ${{ secrets.PROD_USER }}
+          TARGET: ${{ secrets.PROD_TARGET }}
+          SCRIPT_BEFORE: |
+            whoami
+            ls -al
+          SCRIPT_AFTER: |
+            whoami
+            ls -al
+            echo $RSYNC_STDOUT
