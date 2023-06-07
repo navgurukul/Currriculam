@@ -19,6 +19,17 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "emailTemplate": {
+      "type": "richtext",
+      "required": false
+    },
+    "attachment": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

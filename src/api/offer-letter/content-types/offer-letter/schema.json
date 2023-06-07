@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offer_letters",
+  "info": {
+    "singularName": "offer-letter",
+    "pluralName": "offer-letters",
+    "displayName": "OfferLetter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "unique": true
+    },
+    "email_template": {
+      "type": "richtext",
+      "required": true
+    },
+    "leave_policy": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
+    },
+    "consent_form": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "stuffs_to_getHi": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "stuffs_to_getEng": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "admission_letter": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
