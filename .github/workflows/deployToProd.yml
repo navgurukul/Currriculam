@@ -23,7 +23,6 @@ jobs:
       - name: Sync Dev to main
         if: steps.branch_check.outcome == 'success'
         run: |
-          git checkout main
           git pull origin Dev
           git merge --no-ff origin/Dev
       - name: Install Dependencies
