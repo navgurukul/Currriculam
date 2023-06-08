@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configure Git
-        run: |
-          git config --global user.email "sanjnapanwar7697@gmail.com"
-          git config --global user.name "SanjnaPanwar"
-          
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
@@ -33,11 +28,8 @@ jobs:
         run: |
           git checkout main
           git pull origin main
-          git fetch origin Dev
-          git checkout -b temp origin/Dev
-          git commit --allow-empty -m "Temporary commit"
-          git replace $(git rev-parse main) $(git rev-parse temp)
-          git branch -D temp
+          git fetch origin Dev --depth=1
+          git merge --allow-unrelated-histories -m "Merge Dev branch" origin/Dev
           
       - name: Install Dependencies
         run: npm install
