@@ -23,10 +23,11 @@ jobs:
           fi
       - name: Sync Dev to main
         if: steps.branch_check.outcome == 'success'
-        run: | 
+        run: |
           git config pull.rebase false
-          git pull origin Dev
-          
+          git checkout main
+          git pull origin main
+          git merge --no-ff --allow-unrelated-histories origin/Dev
       - name: Install Dependencies
         run: npm install
       - name: Build Production Code
