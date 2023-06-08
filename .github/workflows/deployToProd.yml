@@ -27,7 +27,7 @@ jobs:
           git config pull.rebase false
           git checkout main
           git pull origin main
-          git merge --no-ff --allow-unrelated-histories origin/Dev
+          git cherry-pick origin/Dev
       - name: Install Dependencies
         run: npm install
       - name: Build Production Code
