@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -22,9 +23,20 @@ jobs:
           fi
       - name: Sync Dev to main
         if: steps.branch_check.outcome == 'success'
-        run: |
+        run: | 
           git config pull.rebase false
+          git checkout main
+          git pull origin main
           git merge --no-ff origin/Dev
+          # Handle conflicts if any
+          git diff --name-only --diff-filter=U | while read -r file; do
+            echo "Conflict in file: $file"
+            # Resolve conflicts manually
+            # Add the resolved files
+            git add "$file"
+          done
+          # Commit the merge changes
+          git commit -m "Merge changes from Dev"
       - name: Install Dependencies
         run: npm install
       - name: Build Production Code
