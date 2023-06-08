@@ -25,6 +25,8 @@ jobs:
         if: steps.branch_check.outcome == 'success'
         run: | 
           git pull origin Dev
+          git config pull.rebase false
+          
       - name: Install Dependencies
         run: npm install
       - name: Build Production Code
