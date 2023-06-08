@@ -24,8 +24,8 @@ jobs:
       - name: Sync Dev to main
         if: steps.branch_check.outcome == 'success'
         run: | 
-          git pull origin Dev
           git config pull.rebase false
+          git pull origin Dev
           
       - name: Install Dependencies
         run: npm install
