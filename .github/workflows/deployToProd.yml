@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set Git Identity
-        run: |
-          git config user.email "${{ secrets.COMMITTER_EMAIL }}"
-          git config user.name "${{ secrets.COMMITTER_NAME }}"
-
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
