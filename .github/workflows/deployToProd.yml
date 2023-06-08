@@ -27,7 +27,8 @@ jobs:
           git config pull.rebase false
           git checkout main
           git pull origin main
-          git cherry-pick origin/Dev
+          git fetch origin Dev
+          git merge --no-ff origin/Dev
       - name: Install Dependencies
         run: npm install
       - name: Build Production Code
