@@ -27,9 +27,8 @@ jobs:
         if: steps.branch_check.outcome == 'success'
         run: |
           git checkout main
-          git pull origin main
-          git fetch origin Dev --depth=1
-          git merge --allow-unrelated-histories -m "Merge Dev branch" origin/Dev
+          git fetch origin Dev:Dev
+          git merge --no-ff Dev
           
       - name: Install Dependencies
         run: npm install
