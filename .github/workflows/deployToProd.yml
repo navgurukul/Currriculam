@@ -27,7 +27,8 @@ jobs:
         if: steps.branch_check.outcome == 'success'
         run: |
           git checkout main
-          git pull origin Dev --no-commit
+          git config pull.rebase false  # Set reconciliation strategy to merge
+          git pull origin Dev
           
       - name: Install Dependencies
         run: npm install
