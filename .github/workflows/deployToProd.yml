@@ -28,7 +28,7 @@ jobs:
         run: |
           git checkout main
           git config pull.rebase false  # Set reconciliation strategy to merge
-          git pull origin Dev
+          git pull origin Dev --allow-unrelated-histories  # Allow unrelated histories
           
       - name: Install Dependencies
         run: npm install
