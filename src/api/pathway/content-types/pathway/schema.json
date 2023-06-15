@@ -113,6 +113,20 @@
         }
       },
       "type": "string"
+    },
+    "platform": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "web",
+        "android",
+        "both"
+      ],
+      "default": "both"
     }
   }
 }
