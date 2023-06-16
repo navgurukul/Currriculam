@@ -8,34 +8,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          
-      - name: Check Branch
-        id: branch_check
-        run: |
-          if [[ "${{ github.base_ref }}" != "refs/heads/Dev" ]]; then
-            echo "This push is not on the Dev branch."
-            exit 0
-          fi
-          
-      - name: Sync Dev to main
-        if: steps.branch_check.outcome == 'success'
-        run: |
-          git checkout main
-          git config pull.rebase false  # Set reconciliation strategy to merge
-          git pull origin Dev --allow-unrelated-histories  # Allow unrelated histories
-          
+      - name: Check for Conflicts
+        run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
       - name: Install Dependencies
         run: npm install
-        
       - name: Build Production Code
         run: npm run build
-        
       - name: Deploy to Production
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
@@ -44,7 +25,7 @@ jobs:
           SOURCE: "public/"
           PROD_HOST: ${{ secrets.PROD_HOST }}
           PROD_USER: ${{ secrets.PROD_USER }}
-          TARGET: ${{ secrets.PROD_TARGET }}
+          PROD_TARGET: ${{ secrets.PROD_TARGET }}
           SCRIPT_BEFORE: |
             whoami
             ls -al
@@ -52,3 +33,5 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
+
+           
