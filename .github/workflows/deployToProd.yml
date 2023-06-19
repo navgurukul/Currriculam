@@ -20,12 +20,12 @@ jobs:
       - name: Deploy to Production
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
-          PROD_SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i"
           SOURCE: "public/"
-          PROD_HOST: ${{ secrets.PROD_HOST }}
-          PROD_USER: ${{ secrets.PROD_USER }}
-          PROD_TARGET: ${{ secrets.PROD_TARGET }}
+          REMOTE_HOST: ${{ secrets.PROD_HOST }}
+          REMOTE_USER: ${{ secrets.PROD_USER }}
+          REMOTE_TARGET: ${{ secrets.PROD_TARGET }}
           SCRIPT_BEFORE: |
             whoami
             ls -al
