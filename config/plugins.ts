@@ -21,13 +21,5 @@ export default ({ env }) => ({
             },
         },
     },
-    "strapi-google-translator": {
-        enabled: true,
-        config: {
-          backendUrl: env("STRAPI_BACKEND_URL"),
-          apiToken: env("STRAPI_GOOGLE_TRANSLATE_API_TOKEN"),
-          googleJson: env("GOOGLE_TRANSLATE_JSON"),
-        },
-      },
 });
   
