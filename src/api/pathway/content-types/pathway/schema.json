@@ -101,6 +101,7 @@
         "web",
         "android",
         "both"
+<<<<<<< HEAD
       ]
     },
     "sub_description": {
@@ -118,6 +119,10 @@
         }
       },
       "type": "string"
+=======
+      ],
+      "default": "both"
+>>>>>>> 643f2386fd5cdf2820f213db947afff61c55da84
     }
   }
 }

@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy to Development
 
 on:
   push:
@@ -11,15 +11,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_TOKEN }}
       - name: Check for Conflicts
         run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
       - name: Install Dependencies
         run: npm install
-      - name: Build Production Code
+      - name: Build Development Code
         run: npm run build
-      - name: Deploy to Production
+      - name: Deploy to Development
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
