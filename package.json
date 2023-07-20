@@ -17,6 +17,7 @@
     "@strapi/strapi": "^4.9.1",
     "pg": "8.6.0",
     "react-quill": "^2.0.0",
+    "strapi-plugin-multi-select": "^1.2.2",
     "strapi-plugin-react-editorjs": "^2.0.2"
   },
   "author": {
