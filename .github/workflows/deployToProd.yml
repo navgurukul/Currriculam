@@ -1,4 +1,4 @@
-name: Deploy to Development
+name: Deploy to Production
 
 on:
   push:
@@ -15,9 +15,9 @@ jobs:
         run: git diff --quiet origin/main || { echo "There are conflicts in the code."; exit 1; }
       - name: Install Dependencies
         run: npm install
-      - name: Build Development Code
+      - name: Build Production Code
         run: npm run build
-      - name: Deploy to Development
+      - name: Deploy to Production
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
           SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
