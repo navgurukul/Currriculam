@@ -4,7 +4,8 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "Course"
+    "displayName": "Course",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,23 +35,6 @@
       "type": "string",
       "maxLength": 255
     },
-    "logo": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "maxLength": 255
-    },
-    "lang_available": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "json"
-    },
     "pathway": {
       "type": "relation",
       "relation": "manyToOne",
@@ -68,6 +52,34 @@
       "relation": "oneToMany",
       "target": "api::assessment.assessment",
       "mappedBy": "course"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "lang_available": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "options": [
+        "en",
+        "hi",
+        "mr",
+        "te"
+      ],
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }
