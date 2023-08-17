@@ -1,9 +1,9 @@
-name: Deploy to Production
+name: Deploy to Development
 
 on:
   push:
     branches:
-      - main
+      - Dev
 
 jobs:
   deploy:
@@ -12,20 +12,20 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Check for Conflicts
-        run: git diff --quiet origin/main || { echo "There are conflicts in the code."; exit 1; }
+        run: git diff --quiet origin/Dev || { echo "There are conflicts in the code."; exit 1; }
       - name: Install Dependencies
         run: npm install
-      - name: Build Production Code
+      - name: Build Development Code
         run: npm run build
-      - name: Deploy to Production
+      - name: Deploy to Development
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i"
           SOURCE: "public/"
-          REMOTE_HOST: ${{ secrets.PROD_HOST }}
-          REMOTE_USER: ${{ secrets.PROD_USER }}
-          REMOTE_TARGET: ${{ secrets.PROD_TARGET }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
           SCRIPT_BEFORE: |
             whoami
             ls -al
@@ -33,5 +33,3 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
-
-           
