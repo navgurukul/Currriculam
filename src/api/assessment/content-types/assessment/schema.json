@@ -25,14 +25,6 @@
       "type": "string",
       "required": true
     },
-    "content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "json"
-    },
     "exercise": {
       "type": "relation",
       "relation": "manyToOne",
@@ -44,6 +36,38 @@
       "relation": "manyToOne",
       "target": "api::course.course",
       "inversedBy": "assessments"
+    },
+    "question": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "richtext",
+      "default": "Provide Question and it's options ( order id - 1,2,3,4 )",
+      "required": true
+    },
+    "dynamic": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "assessment-option.option"
+      ]
+    },
+    "explaination": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "assessment-explaination.explaination",
+      "required": true
     }
   }
 }

@@ -33,5 +33,3 @@ jobs:
             whoami
             ls -al
             echo $RSYNC_STDOUT
-
-           

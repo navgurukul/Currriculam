@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "wysiwyg",
+    "name": "Wysiwyg",
     "description": "Quill is a powerful, free and open source WYSIWYG editor made for the modern web. Equipped with modern architecture and an expressive API, it’s highly compatible, extensible and customizable to fit any need.",
     "kind": "plugin"
   },
