@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_language_available_languages",
+  "info": {
+    "displayName": "Available Language",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "lang": {
+      "type": "string",
+      "required": true,
+      "default": "en"
+    }
+  }
+}
