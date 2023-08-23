@@ -13,6 +13,7 @@ export default ({ env }) => ({
                 params: {
                     Bucket: env('AWS_BUCKET_NAME'),
                 },
+                sizeLimit: 50000000,
             },
             actionOptions: {
                 upload: {},
