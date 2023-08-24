@@ -79,7 +79,8 @@
         "mr",
         "te"
       ],
-      "customField": "plugin::multi-select.multi-select"
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
     }
   }
 }
