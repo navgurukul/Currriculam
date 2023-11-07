@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offer_letters",
+  "info": {
+    "singularName": "offer-letter",
+    "pluralName": "offer-letters",
+    "displayName": "OfferLetterManagement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campusName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "language": {
+      "type": "customField",
+      "options": [
+        "en",
+        "hi",
+        "mr",
+        "te",
+        ""
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "subject": {
+      "type": "text",
+      "required": true
+    },
+    "salutation": {
+      "type": "string",
+      "required": true
+    },
+    "emailContent": {
+      "type": "richtext",
+      "required": true
+    },
+    "cc": {
+      "type": "dynamiczone",
+      "components": [
+        "offer-letter-management.email"
+      ],
+      "required": true
+    },
+    "attachment": {
+      "type": "dynamiczone",
+      "components": [
+        "offer-letter-management.attachments"
+      ],
+      "required": false
+    },
+    "whatsapp_chat_link": {
+      "type": "string"
+    },
+    "program_manager_name": {
+      "type": "string"
+    },
+    "program_manager_number": {
+      "type": "string"
+    },
+    "tech_facility_in_charge_name": {
+      "type": "string"
+    },
+    "tech_facility_in_charge_number": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "location_link": {
+      "type": "string"
+    },
+    "sender_name": {
+      "type": "string"
+    }
+  }
+}

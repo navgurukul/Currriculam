@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modules",
+  "info": {
+    "singularName": "module",
+    "pluralName": "modules",
+    "displayName": "module",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course",
+      "mappedBy": "modules"
+    },
+    "pathway": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pathway.pathway",
+      "inversedBy": "modules"
+    },
+    "description": {
+      "type": "text"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "color": {
+      "type": "string",
+      "required": true,
+      "default": "#FA6F56"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "button_type": {
+      "type": "enumeration",
+      "enum": [
+        "project_topic",
+        "project_solution"
+      ]
+    },
+    "show_on_meraki": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

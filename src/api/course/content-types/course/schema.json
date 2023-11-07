@@ -76,11 +76,18 @@
       "options": [
         "en",
         "hi",
-        "mr",
-        "te"
+        "kn",
+        "te",
+        "or"
       ],
       "customField": "plugin::multi-select.multi-select",
       "required": true
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::module.module",
+      "inversedBy": "courses"
     }
   }
 }
