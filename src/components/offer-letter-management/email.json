@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_assessment_option_emails",
+  "info": {
+    "displayName": "email",
+    "icon": "envelop",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}
