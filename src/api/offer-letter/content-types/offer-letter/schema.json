@@ -4,8 +4,7 @@
   "info": {
     "singularName": "offer-letter",
     "pluralName": "offer-letters",
-    "displayName": "OfferLetterManagement",
-    "description": ""
+    "displayName": "offer-letter"
   },
   "options": {
     "draftAndPublish": true
@@ -24,7 +23,8 @@
         "hi",
         "mr",
         "te",
-        ""
+        "tu",
+        "or"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
@@ -34,8 +34,7 @@
       "required": true
     },
     "salutation": {
-      "type": "string",
-      "required": false
+      "type": "string"
     },
     "emailContent": {
       "type": "richtext",

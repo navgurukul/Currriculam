@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_assessment_options_explanations",
+  "info": {
+    "displayName": "explanation",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "explanation": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

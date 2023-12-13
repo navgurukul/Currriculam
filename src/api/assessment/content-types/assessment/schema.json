@@ -4,8 +4,7 @@
   "info": {
     "singularName": "assessment",
     "pluralName": "assessments",
-    "displayName": "Assessment",
-    "description": ""
+    "displayName": "assessment"
   },
   "options": {
     "draftAndPublish": true
@@ -29,7 +28,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::exercise.exercise",
-      "inversedBy": "assessment"
+      "inversedBy": "assessments"
     },
     "course": {
       "type": "relation",
@@ -40,14 +39,13 @@
     "question": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "richtext",
-      "default": "Provide Question and it's options ( order id - 1,2,3,4 )",
       "required": true
     },
-    "dynamic": {
+    "option": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -55,19 +53,19 @@
       },
       "type": "dynamiczone",
       "components": [
-        "assessment-option.option"
+        "assessment-options.options"
       ]
     },
     "explaination": {
-      "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
-      "component": "assessment-explaination.explaination",
-      "required": true
+      "type": "dynamiczone",
+      "components": [
+        "assessment-options.explanation"
+      ]
     }
   }
 }

@@ -4,8 +4,7 @@
   "info": {
     "singularName": "module",
     "pluralName": "modules",
-    "displayName": "module",
-    "description": ""
+    "displayName": "module"
   },
   "options": {
     "draftAndPublish": true
@@ -20,7 +19,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::course.course",
-      "mappedBy": "modules"
+      "inversedBy": "modules"
     },
     "pathway": {
       "type": "relation",
@@ -32,23 +31,24 @@
       "type": "text"
     },
     "logo": {
+      "allowedTypes": [
+        "images"
+      ],
       "type": "media",
       "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "required": true
     },
     "color": {
-      "type": "string",
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "required": true,
-      "default": "#FA6F56"
+      "customField": "plugin::color-picker.color"
     },
     "borderColor": {
-      "type": "string"
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "required": true,
+      "customField": "plugin::color-picker.color"
     },
     "button_type": {
       "type": "enumeration",

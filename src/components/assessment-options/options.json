@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_assessment_options_options",
+  "info": {
+    "displayName": "options",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer",
+      "required": false
+    },
+    "value": {
+      "type": "blocks",
+      "required": true
+    },
+    "correct": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

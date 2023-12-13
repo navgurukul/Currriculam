@@ -1,9 +1,8 @@
 {
   "collectionName": "components_offer_letter_management_attachments",
   "info": {
-    "displayName": "Attachments",
-    "icon": "filePdf",
-    "description": ""
+    "displayName": "attachments",
+    "icon": "link"
   },
   "options": {},
   "attributes": {
@@ -12,12 +11,12 @@
       "required": true
     },
     "files": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
       "allowedTypes": [
         "files"
-      ]
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
