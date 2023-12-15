@@ -4,7 +4,8 @@
   "info": {
     "singularName": "assessment",
     "pluralName": "assessments",
-    "displayName": "assessment"
+    "displayName": "Assessment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

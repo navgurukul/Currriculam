@@ -682,7 +682,8 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
   info: {
     singularName: 'assessment';
     pluralName: 'assessments';
-    displayName: 'assessment';
+    displayName: 'Assessment';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -758,7 +759,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   info: {
     singularName: 'course';
     pluralName: 'courses';
-    displayName: 'course';
+    displayName: 'Course';
     description: '';
   };
   options: {
@@ -824,7 +825,8 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
   info: {
     singularName: 'exercise';
     pluralName: 'exercises';
-    displayName: 'exercise';
+    displayName: 'Exercise';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -905,7 +907,8 @@ export interface ApiModuleModule extends Schema.CollectionType {
   info: {
     singularName: 'module';
     pluralName: 'modules';
-    displayName: 'module';
+    displayName: 'Module';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -957,7 +960,8 @@ export interface ApiOfferLetterOfferLetter extends Schema.CollectionType {
   info: {
     singularName: 'offer-letter';
     pluralName: 'offer-letters';
-    displayName: 'offer-letter';
+    displayName: 'Offer-letter';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1007,7 +1011,7 @@ export interface ApiPathwayPathway extends Schema.CollectionType {
   info: {
     singularName: 'pathway';
     pluralName: 'pathways';
-    displayName: 'pathway';
+    displayName: 'Pathway';
     description: '';
   };
   options: {

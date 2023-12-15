@@ -4,7 +4,8 @@
   "info": {
     "singularName": "module",
     "pluralName": "modules",
-    "displayName": "module"
+    "displayName": "Module",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,12 +32,12 @@
       "type": "text"
     },
     "logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "color": {
       "type": "customField",
