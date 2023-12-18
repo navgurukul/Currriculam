@@ -878,6 +878,11 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
       'oneToMany',
       'api::assessment.assessment'
     >;
+    slug: Attribute.Relation<
+      'api::exercise.exercise',
+      'manyToOne',
+      'api::slug.slug'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1061,6 +1066,34 @@ export interface ApiPathwayPathway extends Schema.CollectionType {
   };
 }
 
+export interface ApiSlugSlug extends Schema.CollectionType {
+  collectionName: 'slugs';
+  info: {
+    singularName: 'slug';
+    pluralName: 'slugs';
+    displayName: 'Slug';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    exercises: Attribute.Relation<
+      'api::slug.slug',
+      'oneToMany',
+      'api::exercise.exercise'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::slug.slug', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::slug.slug', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1083,6 +1116,7 @@ declare module '@strapi/types' {
       'api::module.module': ApiModuleModule;
       'api::offer-letter.offer-letter': ApiOfferLetterOfferLetter;
       'api::pathway.pathway': ApiPathwayPathway;
+      'api::slug.slug': ApiSlugSlug;
     }
   }
 }
