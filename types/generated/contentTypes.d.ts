@@ -732,6 +732,11 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    slug: Attribute.Relation<
+      'api::assessment.assessment',
+      'manyToOne',
+      'api::slug.slug'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1085,6 +1090,11 @@ export interface ApiSlugSlug extends Schema.CollectionType {
       'api::slug.slug',
       'oneToMany',
       'api::exercise.exercise'
+    >;
+    assessments: Attribute.Relation<
+      'api::slug.slug',
+      'oneToMany',
+      'api::assessment.assessment'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

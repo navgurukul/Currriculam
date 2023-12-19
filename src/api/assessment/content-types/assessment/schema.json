@@ -67,6 +67,12 @@
       "components": [
         "assessment-explaination.explaination"
       ]
+    },
+    "slug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slug.slug",
+      "inversedBy": "assessments"
     }
   }
 }
