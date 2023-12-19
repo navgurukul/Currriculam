@@ -1,14 +1,13 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface AssessmentOptionsExplanation extends Schema.Component {
-  collectionName: 'components_assessment_options_explanations';
+export interface AssessmentExplainationExplaination extends Schema.Component {
+  collectionName: 'components_assessment_explaination_explainations';
   info: {
-    displayName: 'explanation';
-    icon: 'chartBubble';
+    displayName: 'Explaination';
     description: '';
   };
   attributes: {
-    explanation: Attribute.RichText & Attribute.Required;
+    explaination: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -53,7 +52,7 @@ export interface OfferLetterManagementEmail extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'assessment-options.explanation': AssessmentOptionsExplanation;
+      'assessment-explaination.explaination': AssessmentExplainationExplaination;
       'assessment-options.options': AssessmentOptionsOptions;
       'offer-letter-management.attachments': OfferLetterManagementAttachments;
       'offer-letter-management.email': OfferLetterManagementEmail;

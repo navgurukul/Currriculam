@@ -724,7 +724,9 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    explaination: Attribute.DynamicZone<['assessment-options.explanation']> &
+    explaination: Attribute.DynamicZone<
+      ['assessment-explaination.explaination']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

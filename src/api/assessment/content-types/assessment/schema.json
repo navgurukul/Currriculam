@@ -65,7 +65,7 @@
       },
       "type": "dynamiczone",
       "components": [
-        "assessment-options.explanation"
+        "assessment-explaination.explaination"
       ]
     }
   }

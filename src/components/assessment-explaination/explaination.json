@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_assessment_explaination_explainations",
+  "info": {
+    "displayName": "Explaination",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "explaination": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
