@@ -57,22 +57,20 @@
         "assessment-options.options"
       ]
     },
-    "explaination": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "assessment-explaination.explaination"
-      ]
-    },
     "slug": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::slug.slug",
       "inversedBy": "assessments"
+    },
+    "explaination": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
     }
   }
 }

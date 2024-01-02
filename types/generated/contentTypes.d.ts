@@ -724,19 +724,18 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    explaination: Attribute.DynamicZone<
-      ['assessment-explaination.explaination']
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     slug: Attribute.Relation<
       'api::assessment.assessment',
       'manyToOne',
       'api::slug.slug'
     >;
+    explaination: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
