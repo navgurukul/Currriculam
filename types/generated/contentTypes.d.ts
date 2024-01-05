@@ -724,10 +724,16 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    explaination: Attribute.DynamicZone<['assessment-options.explanation']> &
+    slug: Attribute.Relation<
+      'api::assessment.assessment',
+      'manyToOne',
+      'api::slug.slug'
+    >;
+    explaination: Attribute.Text &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -877,6 +883,11 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
       'api::exercise.exercise',
       'oneToMany',
       'api::assessment.assessment'
+    >;
+    slug: Attribute.Relation<
+      'api::exercise.exercise',
+      'manyToOne',
+      'api::slug.slug'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1061,6 +1072,39 @@ export interface ApiPathwayPathway extends Schema.CollectionType {
   };
 }
 
+export interface ApiSlugSlug extends Schema.CollectionType {
+  collectionName: 'slugs';
+  info: {
+    singularName: 'slug';
+    pluralName: 'slugs';
+    displayName: 'Slug';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    exercises: Attribute.Relation<
+      'api::slug.slug',
+      'oneToMany',
+      'api::exercise.exercise'
+    >;
+    assessments: Attribute.Relation<
+      'api::slug.slug',
+      'oneToMany',
+      'api::assessment.assessment'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::slug.slug', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::slug.slug', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1083,6 +1127,7 @@ declare module '@strapi/types' {
       'api::module.module': ApiModuleModule;
       'api::offer-letter.offer-letter': ApiOfferLetterOfferLetter;
       'api::pathway.pathway': ApiPathwayPathway;
+      'api::slug.slug': ApiSlugSlug;
     }
   }
 }
