@@ -774,6 +774,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         minLength: 255;
       }>;
@@ -845,13 +846,14 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }> &
       Attribute.SetMinMaxLength<{
-        minLength: 3;
+        maxLength: 255;
       }>;
     description: Attribute.String &
       Attribute.SetPluginOptions<{
@@ -925,7 +927,7 @@ export interface ApiModuleModule extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
     courses: Attribute.Relation<
       'api::module.module',
       'manyToMany',
