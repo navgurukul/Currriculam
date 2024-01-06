@@ -16,7 +16,8 @@
       "type": "string",
       "required": true,
       "minLength": 255,
-      "pluginOptions": {}
+      "pluginOptions": {},
+      "unique": true
     },
     "short_description": {
       "type": "string",
