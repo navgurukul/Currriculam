@@ -724,11 +724,6 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    slug: Attribute.Relation<
-      'api::assessment.assessment',
-      'manyToOne',
-      'api::slug.slug'
-    >;
     explaination: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -885,11 +880,6 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
       'api::exercise.exercise',
       'oneToMany',
       'api::assessment.assessment'
-    >;
-    slug: Attribute.Relation<
-      'api::exercise.exercise',
-      'manyToOne',
-      'api::slug.slug'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1080,22 +1070,24 @@ export interface ApiSlugSlug extends Schema.CollectionType {
     singularName: 'slug';
     pluralName: 'slugs';
     displayName: 'Slug';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    exercises: Attribute.Relation<
-      'api::slug.slug',
-      'oneToMany',
-      'api::exercise.exercise'
-    >;
+    slug: Attribute.UID;
+    type: Attribute.Enumeration<['exercise', 'assessment']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'exercise'>;
     assessments: Attribute.Relation<
       'api::slug.slug',
       'oneToMany',
       'api::assessment.assessment'
+    >;
+    exercises: Attribute.Relation<
+      'api::slug.slug',
+      'oneToMany',
+      'api::exercise.exercise'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
