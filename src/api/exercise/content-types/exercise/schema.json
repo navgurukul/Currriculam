@@ -69,12 +69,6 @@
       "relation": "oneToMany",
       "target": "api::assessment.assessment",
       "mappedBy": "exercise"
-    },
-    "slug": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::slug.slug",
-      "inversedBy": "exercises"
     }
   }
 }

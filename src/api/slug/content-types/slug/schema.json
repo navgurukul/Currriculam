@@ -4,30 +4,34 @@
   "info": {
     "singularName": "slug",
     "pluralName": "slugs",
-    "displayName": "Slug",
-    "description": ""
+    "displayName": "Slug"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "unique": true,
-      "required": true
+    "slug": {
+      "type": "uid"
     },
-    "exercises": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::exercise.exercise",
-      "mappedBy": "slug"
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "exercise",
+        "assessment"
+      ],
+      "default": "exercise",
+      "required": true
     },
     "assessments": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::assessment.assessment",
-      "mappedBy": "slug"
+      "target": "api::assessment.assessment"
+    },
+    "exercises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exercise.exercise"
     }
   }
 }
