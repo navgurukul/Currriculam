@@ -65,6 +65,12 @@
       },
       "type": "text",
       "required": true
+    },
+    "slug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slug.slug",
+      "inversedBy": "assessments"
     }
   }
 }

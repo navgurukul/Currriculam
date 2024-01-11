@@ -731,6 +731,11 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    slug: Attribute.Relation<
+      'api::assessment.assessment',
+      'manyToOne',
+      'api::slug.slug'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -841,14 +846,10 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 255;
       }>;
     description: Attribute.String &
       Attribute.SetPluginOptions<{
@@ -880,6 +881,11 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
       'api::exercise.exercise',
       'oneToMany',
       'api::assessment.assessment'
+    >;
+    slug: Attribute.Relation<
+      'api::exercise.exercise',
+      'manyToOne',
+      'api::slug.slug'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1075,10 +1081,8 @@ export interface ApiSlugSlug extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    slug: Attribute.UID;
-    type: Attribute.Enumeration<['exercise', 'assessment']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'exercise'>;
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.UID<'api::slug.slug', 'name'> & Attribute.Required;
     assessments: Attribute.Relation<
       'api::slug.slug',
       'oneToMany',
@@ -1089,6 +1093,9 @@ export interface ApiSlugSlug extends Schema.CollectionType {
       'oneToMany',
       'api::exercise.exercise'
     >;
+    type: Attribute.Enumeration<['exercise', 'assessment']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'exercise'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

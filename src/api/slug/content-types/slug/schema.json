@@ -11,8 +11,27 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "assessments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assessment.assessment",
+      "mappedBy": "slug"
+    },
+    "exercises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exercise.exercise",
+      "mappedBy": "slug"
     },
     "type": {
       "type": "enumeration",
@@ -22,16 +41,6 @@
       ],
       "default": "exercise",
       "required": true
-    },
-    "assessments": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::assessment.assessment"
-    },
-    "exercises": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::exercise.exercise"
     }
   }
 }

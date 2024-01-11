@@ -24,8 +24,7 @@
       },
       "type": "string",
       "required": true,
-      "unique": true,
-      "maxLength": 255
+      "unique": false
     },
     "description": {
       "pluginOptions": {
@@ -69,6 +68,12 @@
       "relation": "oneToMany",
       "target": "api::assessment.assessment",
       "mappedBy": "exercise"
+    },
+    "slug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slug.slug",
+      "inversedBy": "exercises"
     }
   }
 }
