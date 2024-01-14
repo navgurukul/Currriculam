@@ -69,6 +69,12 @@
       "relation": "oneToMany",
       "target": "api::assessment.assessment",
       "mappedBy": "course"
+    },
+    "slugs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::slug.slug",
+      "mappedBy": "course"
     }
   }
 }

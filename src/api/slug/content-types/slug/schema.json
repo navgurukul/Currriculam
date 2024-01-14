@@ -4,7 +4,8 @@
   "info": {
     "singularName": "slug",
     "pluralName": "slugs",
-    "displayName": "Slug"
+    "displayName": "Slug",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -41,6 +42,12 @@
       ],
       "default": "exercise",
       "required": true
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course.course",
+      "inversedBy": "slugs"
     }
   }
 }
