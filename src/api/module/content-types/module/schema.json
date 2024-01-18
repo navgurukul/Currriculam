@@ -17,12 +17,6 @@
       "required": true,
       "unique": true
     },
-    "courses": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::course.course",
-      "inversedBy": "modules"
-    },
     "pathway": {
       "type": "relation",
       "relation": "manyToOne",
@@ -63,6 +57,12 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course",
+      "mappedBy": "modules"
     }
   }
 }

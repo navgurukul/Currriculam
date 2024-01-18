@@ -15,13 +15,11 @@
     "name": {
       "type": "string",
       "required": true,
-      "minLength": 255,
       "pluginOptions": {},
       "unique": true
     },
     "short_description": {
       "type": "string",
-      "minLength": 255,
       "pluginOptions": {}
     },
     "pathway": {
@@ -43,20 +41,19 @@
       "type": "customField",
       "options": [
         "en",
-        "hi",
-        "kn",
-        "te",
-        "tu",
-        "or"
+        "hi-IN",
+        "kn-IN",
+        "te-IN",
+        "or-IN"
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
     },
     "modules": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::module.module",
-      "mappedBy": "courses"
+      "inversedBy": "courses"
     },
     "exercises": {
       "type": "relation",

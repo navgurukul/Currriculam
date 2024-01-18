@@ -4,8 +4,7 @@
   "info": {
     "singularName": "slug",
     "pluralName": "slugs",
-    "displayName": "Slug",
-    "description": ""
+    "displayName": "Slug"
   },
   "options": {
     "draftAndPublish": true
@@ -14,13 +13,20 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "unique": true,
+      "required": true
     },
     "slug": {
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "exercise",
+        "assessment"
+      ]
     },
     "assessments": {
       "type": "relation",
@@ -33,15 +39,6 @@
       "relation": "oneToMany",
       "target": "api::exercise.exercise",
       "mappedBy": "slug"
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "exercise",
-        "assessment"
-      ],
-      "default": "exercise",
-      "required": true
     },
     "course": {
       "type": "relation",
