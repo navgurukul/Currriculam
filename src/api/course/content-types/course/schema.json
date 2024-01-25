@@ -10,35 +10,49 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "name": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "type": "string",
       "required": true,
-      "maxLength": 255
+      "pluginOptions": {},
+      "unique": true
     },
     "short_description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "type": "string",
-      "maxLength": 255
+      "pluginOptions": {}
     },
     "pathway": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::pathway.pathway",
+      "inversedBy": "courses"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "lang_available": {
+      "type": "customField",
+      "options": [
+        "en",
+        "hi-IN",
+        "kn-IN",
+        "te-IN",
+        "or-IN"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::module.module",
       "inversedBy": "courses"
     },
     "exercises": {
@@ -53,41 +67,11 @@
       "target": "api::assessment.assessment",
       "mappedBy": "course"
     },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "lang_available": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "customField",
-      "options": [
-        "en",
-        "hi",
-        "kn",
-        "te",
-        "or"
-      ],
-      "customField": "plugin::multi-select.multi-select",
-      "required": true
-    },
-    "modules": {
+    "slugs": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::module.module",
-      "inversedBy": "courses"
+      "relation": "oneToMany",
+      "target": "api::slug.slug",
+      "mappedBy": "course"
     }
   }
 }

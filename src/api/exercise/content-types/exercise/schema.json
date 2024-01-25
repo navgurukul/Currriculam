@@ -24,7 +24,7 @@
       },
       "type": "string",
       "required": true,
-      "maxLength": 255
+      "unique": false
     },
     "description": {
       "pluginOptions": {
@@ -32,8 +32,7 @@
           "localized": false
         }
       },
-      "type": "string",
-      "maxLength": 255
+      "type": "string"
     },
     "content": {
       "pluginOptions": {
@@ -41,7 +40,8 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "type": {
       "pluginOptions": {
@@ -49,8 +49,13 @@
           "localized": false
         }
       },
-      "type": "string",
-      "maxLength": 255
+      "type": "enumeration",
+      "enum": [
+        "exercise",
+        "assessment"
+      ],
+      "required": true,
+      "default": "exercise"
     },
     "course": {
       "type": "relation",
@@ -58,11 +63,17 @@
       "target": "api::course.course",
       "inversedBy": "exercises"
     },
-    "assessment": {
+    "assessments": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::assessment.assessment",
       "mappedBy": "exercise"
+    },
+    "slug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slug.slug",
+      "inversedBy": "exercises"
     }
   }
 }
