@@ -29,7 +29,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::exercise.exercise",
-      "inversedBy": "assessment"
+      "inversedBy": "assessments"
     },
     "course": {
       "type": "relation",
@@ -40,34 +40,38 @@
     "question": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "richtext",
-      "default": "Provide Question and it's options ( order id - 1,2,3,4 )",
       "required": true
     },
-    "dynamic": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "assessment-option.option"
-      ]
-    },
-    "explaination": {
-      "type": "component",
-      "repeatable": false,
+    "option": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "assessment-explaination.explaination",
+      "type": "dynamiczone",
+      "components": [
+        "assessment-options.options"
+      ],
       "required": true
+    },
+    "explaination": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "slug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slug.slug",
+      "inversedBy": "assessments"
     }
   }
 }

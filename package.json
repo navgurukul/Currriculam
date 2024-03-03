@@ -1,33 +1,43 @@
 {
   "name": "curriculum",
   "private": true,
-  "version": "0.1.0",
-  "description": "Curriculam app",
+  "version": "1.0.0",
+  "description": "A Dashboard to manage all the course content of merakilearn.org and more.",
   "scripts": {
-    "develop": "strapi develop",
+    "develop": "strapi develop — watch-admin",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "generate": "strapi generate"
+    "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.5.5",
-    "@strapi/plugin-users-permissions": "4.5.5",
-    "@strapi/provider-upload-aws-s3": "^4.5.5",
-    "@strapi/strapi": "^4.9.1",
-    "pg": "8.6.0",
-    "react-quill": "^2.0.0",
+    "@strapi/plugin-color-picker": "^4.15.5",
+    "@strapi/plugin-i18n": "4.15.5",
+    "@strapi/plugin-users-permissions": "4.15.5",
+    "@strapi/provider-upload-aws-s3": "^4.15.5",
+    "@strapi/strapi": "4.15.5",
+    "pg": "8.8.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
     "strapi-plugin-multi-select": "^1.2.2",
-    "strapi-plugin-react-editorjs": "^2.0.2"
+    "strapi-tiptap-editor": "^0.9.12",
+    "styled-components": "5.3.3"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
+  "developers": [
+    {
+      "name": "@mahendra-shah",
+      "email": "mahendra21@navgurukul.org"
+    },
+    {
+      "name": "@SanjnaPanwar",
+      "email": "sanjnapanwar21@navgurukul.org"
+    }
+  ],
   "strapi": {
-    "uuid": "14d3370c-ab8b-4ad7-a6bd-08e920bc8738"
+    "uuid": "8784e013-5e11-4c24-92d2-51ab62818a67"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

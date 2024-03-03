@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zuvy_modules",
+  "info": {
+    "singularName": "zuvy-module",
+    "pluralName": "zuvy-modules",
+    "displayName": "Zuvy-module",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "lang_available": {
+      "type": "enumeration",
+      "enum": [
+        "En",
+        "Hi",
+        "Tlg",
+        "Tm"
+      ],
+      "required": true,
+      "default": "En"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "zuvy_articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::zuvy-article.zuvy-article",
+      "mappedBy": "zuvy_module"
+    },
+    "zuvy_mcqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::zuvy-mcq.zuvy-mcq",
+      "mappedBy": "zuvy_module"
+    },
+    "zuvy_contents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::zuvy-content.zuvy-content",
+      "inversedBy": "zuvy_modules"
+    }
+  }
+}
