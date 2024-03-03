@@ -2,13 +2,14 @@
   "collectionName": "components_assessment_options_options",
   "info": {
     "displayName": "options",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "number": {
       "type": "integer",
-      "required": false
+      "required": true
     },
     "value": {
       "type": "blocks",

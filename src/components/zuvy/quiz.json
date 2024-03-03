@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_zuvy_quizzes",
+  "info": {
+    "displayName": "Quiz",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "qz": {
+      "type": "component",
+      "repeatable": true,
+      "component": "assessment-options.options",
+      "required": true
+    },
+    "question": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
