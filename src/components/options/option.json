@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_options_options",
+  "info": {
+    "displayName": "option",
+    "icon": "oneToMany",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "option": {
+      "type": "string",
+      "required": true
+    },
+    "correct": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}
