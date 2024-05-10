@@ -807,6 +807,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'oneToMany',
       'api::slug.slug'
     >;
+    android_logo: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
