@@ -807,6 +807,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'oneToMany',
       'api::slug.slug'
     >;
+    android_logo: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1107,174 +1108,6 @@ export interface ApiSlugSlug extends Schema.CollectionType {
   };
 }
 
-export interface ApiZuvyArticleZuvyArticle extends Schema.CollectionType {
-  collectionName: 'zuvy_articles';
-  info: {
-    singularName: 'zuvy-article';
-    pluralName: 'zuvy-articles';
-    displayName: 'Zuvy-article';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    content: Attribute.RichText & Attribute.Required;
-    label: Attribute.Enumeration<['article', 'assignment']> &
-      Attribute.Required;
-    index: Attribute.Integer & Attribute.Required;
-    zuvy_module: Attribute.Relation<
-      'api::zuvy-article.zuvy-article',
-      'manyToOne',
-      'api::zuvy-module.zuvy-module'
-    >;
-    time_limit: Attribute.Integer;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::zuvy-article.zuvy-article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::zuvy-article.zuvy-article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiZuvyContentZuvyContent extends Schema.CollectionType {
-  collectionName: 'zuvy_contents';
-  info: {
-    singularName: 'zuvy-content';
-    pluralName: 'zuvy-contents';
-    displayName: 'zuvy-content';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    zuvy_modules: Attribute.Relation<
-      'api::zuvy-content.zuvy-content',
-      'manyToMany',
-      'api::zuvy-module.zuvy-module'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::zuvy-content.zuvy-content',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::zuvy-content.zuvy-content',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiZuvyMcqZuvyMcq extends Schema.CollectionType {
-  collectionName: 'zuvy_mcqs';
-  info: {
-    singularName: 'zuvy-mcq';
-    pluralName: 'zuvy-mcqs';
-    displayName: 'Zuvy-mcq';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    label: Attribute.Enumeration<['mcq', 'quiz']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'quiz'>;
-    quiz: Attribute.DynamicZone<['zuvy.quiz']> & Attribute.Required;
-    index: Attribute.Integer & Attribute.Required;
-    name: Attribute.String & Attribute.Required;
-    zuvy_module: Attribute.Relation<
-      'api::zuvy-mcq.zuvy-mcq',
-      'manyToOne',
-      'api::zuvy-module.zuvy-module'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::zuvy-mcq.zuvy-mcq',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::zuvy-mcq.zuvy-mcq',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiZuvyModuleZuvyModule extends Schema.CollectionType {
-  collectionName: 'zuvy_modules';
-  info: {
-    singularName: 'zuvy-module';
-    pluralName: 'zuvy-modules';
-    displayName: 'Zuvy-module';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    lang_available: Attribute.Enumeration<['En', 'Hi', 'Tlg', 'Tm']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'En'>;
-    logo: Attribute.Media;
-    zuvy_articles: Attribute.Relation<
-      'api::zuvy-module.zuvy-module',
-      'oneToMany',
-      'api::zuvy-article.zuvy-article'
-    >;
-    zuvy_mcqs: Attribute.Relation<
-      'api::zuvy-module.zuvy-module',
-      'oneToMany',
-      'api::zuvy-mcq.zuvy-mcq'
-    >;
-    zuvy_contents: Attribute.Relation<
-      'api::zuvy-module.zuvy-module',
-      'manyToMany',
-      'api::zuvy-content.zuvy-content'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::zuvy-module.zuvy-module',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::zuvy-module.zuvy-module',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1298,10 +1131,6 @@ declare module '@strapi/types' {
       'api::offer-letter.offer-letter': ApiOfferLetterOfferLetter;
       'api::pathway.pathway': ApiPathwayPathway;
       'api::slug.slug': ApiSlugSlug;
-      'api::zuvy-article.zuvy-article': ApiZuvyArticleZuvyArticle;
-      'api::zuvy-content.zuvy-content': ApiZuvyContentZuvyContent;
-      'api::zuvy-mcq.zuvy-mcq': ApiZuvyMcqZuvyMcq;
-      'api::zuvy-module.zuvy-module': ApiZuvyModuleZuvyModule;
     }
   }
 }

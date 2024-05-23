@@ -39,41 +39,12 @@ export interface OfferLetterManagementEmail extends Schema.Component {
   };
 }
 
-export interface OptionsOption extends Schema.Component {
-  collectionName: 'components_options_options';
-  info: {
-    displayName: 'option';
-    icon: 'oneToMany';
-    description: '';
-  };
-  attributes: {
-    option: Attribute.String & Attribute.Required;
-    correct: Attribute.Boolean & Attribute.Required;
-  };
-}
-
-export interface ZuvyQuiz extends Schema.Component {
-  collectionName: 'components_zuvy_quizzes';
-  info: {
-    displayName: 'Quiz';
-    icon: 'layer';
-    description: '';
-  };
-  attributes: {
-    qz: Attribute.Component<'assessment-options.options', true> &
-      Attribute.Required;
-    question: Attribute.RichText & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'assessment-options.options': AssessmentOptionsOptions;
       'offer-letter-management.attachments': OfferLetterManagementAttachments;
       'offer-letter-management.email': OfferLetterManagementEmail;
-      'options.option': OptionsOption;
-      'zuvy.quiz': ZuvyQuiz;
     }
   }
 }
