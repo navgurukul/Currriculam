@@ -80,6 +80,13 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "course_type": {
+      "type": "customField",
+      "options": [
+        "pre-quiz"
+      ],
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }
