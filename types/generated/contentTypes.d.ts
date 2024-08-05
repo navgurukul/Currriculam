@@ -808,6 +808,8 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'api::slug.slug'
     >;
     android_logo: Attribute.Media;
+    course_type: Attribute.JSON &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['pre-quiz']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
