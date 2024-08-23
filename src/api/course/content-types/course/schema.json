@@ -88,18 +88,6 @@
       ],
       "customField": "plugin::multi-select.multi-select"
     },
-    "courses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::course.course",
-      "mappedBy": "course"
-    },
-    "course": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::course.course",
-      "inversedBy": "courses"
-    },
     "prequizs": {
       "type": "relation",
       "relation": "oneToMany",

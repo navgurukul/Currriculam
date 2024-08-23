@@ -810,16 +810,6 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     android_logo: Attribute.Media;
     course_type: Attribute.JSON &
       Attribute.CustomField<'plugin::multi-select.multi-select', ['pre-quiz']>;
-    courses: Attribute.Relation<
-      'api::course.course',
-      'oneToMany',
-      'api::course.course'
-    >;
-    course: Attribute.Relation<
-      'api::course.course',
-      'manyToOne',
-      'api::course.course'
-    >;
     prequizs: Attribute.Relation<
       'api::course.course',
       'oneToMany',
@@ -1091,7 +1081,7 @@ export interface ApiPrequizPrequiz extends Schema.CollectionType {
   info: {
     singularName: 'prequiz';
     pluralName: 'prequizs';
-    displayName: 'prequiz';
+    displayName: 'Prequiz';
     description: '';
   };
   options: {
@@ -1099,7 +1089,8 @@ export interface ApiPrequizPrequiz extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    option: Attribute.DynamicZone<['assessment-options.options']>;
+    option: Attribute.DynamicZone<['assessment-options.options']> &
+      Attribute.Required;
     explaination: Attribute.Text & Attribute.Required;
     slug: Attribute.Relation<
       'api::prequiz.prequiz',
