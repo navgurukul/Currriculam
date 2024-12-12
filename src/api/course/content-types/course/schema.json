@@ -80,6 +80,19 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "course_type": {
+      "type": "customField",
+      "options": [
+        "pre-quiz"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "prequizs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prequiz.prequiz",
+      "mappedBy": "course"
     }
   }
 }

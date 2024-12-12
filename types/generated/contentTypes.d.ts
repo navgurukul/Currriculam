@@ -808,6 +808,13 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'api::slug.slug'
     >;
     android_logo: Attribute.Media;
+    course_type: Attribute.JSON &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['pre-quiz']>;
+    prequizs: Attribute.Relation<
+      'api::course.course',
+      'oneToMany',
+      'api::prequiz.prequiz'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1069,12 +1076,60 @@ export interface ApiPathwayPathway extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrequizPrequiz extends Schema.CollectionType {
+  collectionName: 'prequizs';
+  info: {
+    singularName: 'prequiz';
+    pluralName: 'prequizs';
+    displayName: 'Prequiz';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    option: Attribute.DynamicZone<['assessment-options.options']> &
+      Attribute.Required;
+    explaination: Attribute.Text & Attribute.Required;
+    slug: Attribute.Relation<
+      'api::prequiz.prequiz',
+      'manyToOne',
+      'api::slug.slug'
+    >;
+    question: Attribute.RichText & Attribute.Required;
+    course_type: Attribute.JSON &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['prequiz']>;
+    course: Attribute.Relation<
+      'api::prequiz.prequiz',
+      'manyToOne',
+      'api::course.course'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::prequiz.prequiz',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::prequiz.prequiz',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSlugSlug extends Schema.CollectionType {
   collectionName: 'slugs';
   info: {
     singularName: 'slug';
     pluralName: 'slugs';
     displayName: 'Slug';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1082,7 +1137,7 @@ export interface ApiSlugSlug extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     slug: Attribute.UID<'api::slug.slug', 'name'> & Attribute.Required;
-    type: Attribute.Enumeration<['exercise', 'assessment']>;
+    type: Attribute.Enumeration<['exercise', 'assessment', 'prequiz']>;
     assessments: Attribute.Relation<
       'api::slug.slug',
       'oneToMany',
@@ -1097,6 +1152,11 @@ export interface ApiSlugSlug extends Schema.CollectionType {
       'api::slug.slug',
       'manyToOne',
       'api::course.course'
+    >;
+    prequizs: Attribute.Relation<
+      'api::slug.slug',
+      'oneToMany',
+      'api::prequiz.prequiz'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1130,6 +1190,7 @@ declare module '@strapi/types' {
       'api::module.module': ApiModuleModule;
       'api::offer-letter.offer-letter': ApiOfferLetterOfferLetter;
       'api::pathway.pathway': ApiPathwayPathway;
+      'api::prequiz.prequiz': ApiPrequizPrequiz;
       'api::slug.slug': ApiSlugSlug;
     }
   }

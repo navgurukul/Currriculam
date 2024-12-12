@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prequizs",
+  "info": {
+    "singularName": "prequiz",
+    "pluralName": "prequizs",
+    "displayName": "Prequiz",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "option": {
+      "type": "dynamiczone",
+      "components": [
+        "assessment-options.options"
+      ],
+      "required": true
+    },
+    "explaination": {
+      "type": "text",
+      "required": true
+    },
+    "slug": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::slug.slug",
+      "inversedBy": "prequizs"
+    },
+    "question": {
+      "type": "richtext",
+      "required": true
+    },
+    "course_type": {
+      "type": "customField",
+      "options": [
+        "prequiz"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course.course",
+      "inversedBy": "prequizs"
+    }
+  }
+}

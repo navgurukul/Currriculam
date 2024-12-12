@@ -4,7 +4,8 @@
   "info": {
     "singularName": "slug",
     "pluralName": "slugs",
-    "displayName": "Slug"
+    "displayName": "Slug",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,7 +26,8 @@
       "type": "enumeration",
       "enum": [
         "exercise",
-        "assessment"
+        "assessment",
+        "prequiz"
       ]
     },
     "assessments": {
@@ -45,6 +47,12 @@
       "relation": "manyToOne",
       "target": "api::course.course",
       "inversedBy": "slugs"
+    },
+    "prequizs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prequiz.prequiz",
+      "mappedBy": "slug"
     }
   }
 }
