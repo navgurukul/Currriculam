@@ -18,7 +18,7 @@
       "unique": true
     },
     "language": {
-      "type": "customField",
+      "type": "json",
       "options": [
         "en",
         "hi",
@@ -27,8 +27,7 @@
         "tu",
         "or"
       ],
-      "required": true,
-      "customField": "plugin::multi-select.multi-select"
+      "required": true
     },
     "subject": {
       "type": "text",

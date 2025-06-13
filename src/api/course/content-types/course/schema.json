@@ -38,7 +38,7 @@
       "pluginOptions": {}
     },
     "lang_available": {
-      "type": "customField",
+      "type": "json",
       "options": [
         "en",
         "hi-IN",
@@ -46,8 +46,7 @@
         "te-IN",
         "or-IN"
       ],
-      "required": true,
-      "customField": "plugin::multi-select.multi-select"
+      "required": true
     },
     "modules": {
       "type": "relation",
@@ -82,11 +81,10 @@
       ]
     },
     "course_type": {
-      "type": "customField",
+      "type": "json",
       "options": [
         "pre-quiz"
-      ],
-      "customField": "plugin::multi-select.multi-select"
+      ]
     },
     "prequizs": {
       "type": "relation",

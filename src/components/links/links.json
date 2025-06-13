@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_links_links",
+  "info": {
+    "displayName": "Links"
+  },
+  "options": {},
+  "attributes": {
+    "assessments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::assessment.assessment"
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course.course"
+    },
+    "exercises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::exercise.exercise"
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::module.module"
+    },
+    "offer_letters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer-letter.offer-letter"
+    },
+    "pathways": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pathway.pathway"
+    },
+    "prequizs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prequiz.prequiz"
+    },
+    "slugs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::slug.slug"
+    }
+  }
+}

@@ -38,11 +38,10 @@
       "required": true
     },
     "course_type": {
-      "type": "customField",
+      "type": "json",
       "options": [
         "prequiz"
-      ],
-      "customField": "plugin::multi-select.multi-select"
+      ]
     },
     "course": {
       "type": "relation",
