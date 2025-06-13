@@ -15,12 +15,10 @@
     "name": {
       "type": "string",
       "required": true,
-      "pluginOptions": {},
       "unique": true
     },
     "short_description": {
-      "type": "string",
-      "pluginOptions": {}
+      "type": "string"
     },
     "pathway": {
       "type": "relation",
@@ -34,17 +32,18 @@
       "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {}
+      ]
     },
     "lang_available": {
-      "type": "json",
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
       "options": [
         "en",
         "hi-IN",
         "kn-IN",
         "te-IN",
-        "or-IN"
+        "or-I"
       ],
       "required": true
     },
@@ -81,10 +80,13 @@
       ]
     },
     "course_type": {
-      "type": "json",
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
       "options": [
         "pre-quiz"
-      ]
+      ],
+      "required": true
     },
     "prequizs": {
       "type": "relation",

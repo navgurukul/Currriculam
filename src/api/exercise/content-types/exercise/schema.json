@@ -35,12 +35,16 @@
       "type": "string"
     },
     "content": {
+      "type": "customField",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "richtext",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
       "required": true
     },
     "type": {

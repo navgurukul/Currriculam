@@ -5,6 +5,7 @@
 import ckeditor5 from "@_sh/strapi-plugin-ckeditor/strapi-admin";
 import colorPicker from "@strapi/plugin-color-picker/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
+import multiSelect from "strapi-plugin-multi-select/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -12,5 +13,6 @@ renderAdmin(document.getElementById("strapi"), {
     ckeditor5: ckeditor5,
     "color-picker": colorPicker,
     "users-permissions": usersPermissions,
+    "multi-select": multiSelect,
   },
 });

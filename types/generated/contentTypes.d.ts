@@ -459,12 +459,24 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::assessment.assessment'
     >;
-    course_type: Schema.Attribute.JSON;
+    course_type: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['pre-quiz']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     exercises: Schema.Attribute.Relation<'oneToMany', 'api::exercise.exercise'>;
-    lang_available: Schema.Attribute.JSON & Schema.Attribute.Required;
+    lang_available: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['en', 'hi-IN', 'kn-IN', 'te-IN', 'or-I']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -510,6 +522,12 @@ export interface ApiExerciseExercise extends Struct.CollectionTypeSchema {
     >;
     content: Schema.Attribute.RichText &
       Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -624,8 +642,26 @@ export interface ApiOfferLetterOfferLetter extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    emailContent: Schema.Attribute.RichText & Schema.Attribute.Required;
-    language: Schema.Attribute.JSON & Schema.Attribute.Required;
+    emailContent: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    language: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['en', 'hi-IN', 'kn-IN', 'te-IN', 'or-I']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -708,7 +744,13 @@ export interface ApiPrequizPrequiz extends Struct.CollectionTypeSchema {
   };
   attributes: {
     course: Schema.Attribute.Relation<'manyToOne', 'api::course.course'>;
-    course_type: Schema.Attribute.JSON;
+    course_type: Schema.Attribute.JSON &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['pre-quiz']
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -723,7 +765,19 @@ export interface ApiPrequizPrequiz extends Struct.CollectionTypeSchema {
     option: Schema.Attribute.DynamicZone<['assessment-options.options']> &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    question: Schema.Attribute.RichText & Schema.Attribute.Required;
+    question: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Schema.Attribute.Relation<'manyToOne', 'api::slug.slug'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

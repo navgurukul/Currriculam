@@ -18,14 +18,15 @@
       "unique": true
     },
     "language": {
-      "type": "json",
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
       "options": [
         "en",
-        "hi",
-        "mr",
-        "te",
-        "tu",
-        "or"
+        "hi-IN",
+        "kn-IN",
+        "te-IN",
+        "or-I"
       ],
       "required": true
     },
@@ -37,7 +38,16 @@
       "type": "string"
     },
     "emailContent": {
-      "type": "richtext",
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
       "required": true
     },
     "cc": {

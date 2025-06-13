@@ -21,5 +21,8 @@ module.exports = ({ env }) => ({
     'i18n': {
       enabled: true,
     },
+    ckeditor5: {
+      enabled: true,
+    },
 
 });

@@ -37,19 +37,6 @@
       "target": "api::course.course",
       "inversedBy": "assessments"
     },
-    "question": {
-      "type": "customField",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      },
-      "required": true
-    },
     "option": {
       "type": "dynamiczone",
       "pluginOptions": {
@@ -76,6 +63,19 @@
       "relation": "manyToOne",
       "target": "api::slug.slug",
       "inversedBy": "assessments"
+    },
+    "question": {
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
     }
   }
 }
