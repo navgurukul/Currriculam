@@ -86,7 +86,7 @@
       "options": [
         "pre-quiz"
       ],
-      "required": true
+      "required": false
     },
     "prequizs": {
       "type": "relation",
