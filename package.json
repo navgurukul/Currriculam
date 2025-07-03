@@ -4,12 +4,13 @@
   "version": "1.0.0",
   "description": "A Dashboard to manage all the course content of merakilearn.org and more.",
   "scripts": {
-    "develop": "strapi develop — watch-admin",
+    "develop": "strapi develop --watch-admin",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^3.0.9",
     "@strapi/plugin-color-picker": "^4.15.5",
     "@strapi/plugin-i18n": "4.15.5",
     "@strapi/plugin-users-permissions": "4.15.5",
@@ -20,7 +21,6 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "strapi-plugin-multi-select": "^1.2.2",
-    "strapi-tiptap-editor": "^0.9.12",
     "styled-components": "5.3.3"
   },
   "developers": [

@@ -33,10 +33,6 @@
       "target": "api::slug.slug",
       "inversedBy": "prequizs"
     },
-    "question": {
-      "type": "richtext",
-      "required": true
-    },
     "course_type": {
       "type": "customField",
       "options": [
@@ -49,6 +45,14 @@
       "relation": "manyToOne",
       "target": "api::course.course",
       "inversedBy": "prequizs"
+    },
+    "question": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
