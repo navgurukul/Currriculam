@@ -37,10 +37,6 @@
     "salutation": {
       "type": "string"
     },
-    "emailContent": {
-      "type": "richtext",
-      "required": true
-    },
     "cc": {
       "type": "dynamiczone",
       "components": [
@@ -78,6 +74,14 @@
     },
     "sender_name": {
       "type": "string"
+    },
+    "emailContent": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }

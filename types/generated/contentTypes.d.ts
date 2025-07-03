@@ -711,13 +711,6 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
       'manyToOne',
       'api::course.course'
     >;
-    question: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     option: Attribute.DynamicZone<['assessment-options.options']> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -737,6 +730,18 @@ export interface ApiAssessmentAssessment extends Schema.CollectionType {
       'manyToOne',
       'api::slug.slug'
     >;
+    question: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -863,13 +868,6 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    content: Attribute.RichText &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     type: Attribute.Enumeration<['exercise', 'assessment']> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -893,6 +891,19 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
       'manyToOne',
       'api::slug.slug'
     >;
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -991,7 +1002,6 @@ export interface ApiOfferLetterOfferLetter extends Schema.CollectionType {
       >;
     subject: Attribute.Text & Attribute.Required;
     salutation: Attribute.String;
-    emailContent: Attribute.RichText & Attribute.Required;
     cc: Attribute.DynamicZone<['offer-letter-management.email']> &
       Attribute.Required;
     attachment: Attribute.DynamicZone<['offer-letter-management.attachments']>;
@@ -1003,6 +1013,14 @@ export interface ApiOfferLetterOfferLetter extends Schema.CollectionType {
     address: Attribute.String;
     location_link: Attribute.String;
     sender_name: Attribute.String;
+    emailContent: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1097,7 +1115,6 @@ export interface ApiPrequizPrequiz extends Schema.CollectionType {
       'manyToOne',
       'api::slug.slug'
     >;
-    question: Attribute.RichText & Attribute.Required;
     course_type: Attribute.JSON &
       Attribute.CustomField<'plugin::multi-select.multi-select', ['prequiz']>;
     course: Attribute.Relation<
@@ -1105,6 +1122,14 @@ export interface ApiPrequizPrequiz extends Schema.CollectionType {
       'manyToOne',
       'api::course.course'
     >;
+    question: Attribute.RichText &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

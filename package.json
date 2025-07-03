@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A Dashboard to manage all the course content of merakilearn.org and more.",
   "scripts": {
-    "develop": "strapi develop — watch-admin",
+    "develop": "strapi develop --watch-admin",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
